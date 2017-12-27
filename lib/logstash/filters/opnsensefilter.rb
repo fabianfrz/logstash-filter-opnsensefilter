@@ -72,7 +72,6 @@ class LogStash::Filters::Opnsensefilter < LogStash::Filters::Base
           event.set("#{@prefix}window", data[proto_start + 6].to_i)
           event.set("#{@prefix}urgent_pointer", data[proto_start + 7])
           event.set("#{@prefix}options", data[proto_start + 8])
-          entry[:protocol] = proto_data
         end
       end
     end
