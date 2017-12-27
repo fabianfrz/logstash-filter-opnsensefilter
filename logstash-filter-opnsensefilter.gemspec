@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name          = 'logstash-filter-opnsensefilter'
-  s.version       = '1.0.0'
+  s.version       = '1.0.1'
   s.licenses      = ['BSD 2 Clause']
   s.summary       = 'Convert CSV output of the filter of OPNsense to reasonable data.'
   s.homepage      = 'https://github.com/fabianfrz'
