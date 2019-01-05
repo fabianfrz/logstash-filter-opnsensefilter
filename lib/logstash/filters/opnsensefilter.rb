@@ -60,12 +60,12 @@ class LogStash::Filters::Opnsensefilter < LogStash::Filters::Base
         event.set("#{@prefix}destination", data[16])
       end
       if ip_proto
-        if protocol == "tcp" || protocol == "udp"
+        if protocol.downcase == "tcp" || protocol.downcase == "udp"
           event.set("#{@prefix}spt", data[proto_start].to_i)
           event.set("#{@prefix}dpt", data[proto_start + 1].to_i)
           event.set("#{@prefix}length", data[proto_start + 2].to_i)
         end
-        if protocol == "tcp"
+        if protocol.downcase == "tcp"
           event.set("#{@prefix}tcp_flags", data[proto_start + 3])
           event.set("#{@prefix}sequence_number", data[proto_start + 4])
           event.set("#{@prefix}ack_number", data[proto_start + 5].to_i)
