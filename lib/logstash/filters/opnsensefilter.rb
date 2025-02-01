@@ -23,7 +23,7 @@ class LogStash::Filters::Opnsensefilter < LogStash::Filters::Base
       data = event.get(@field_name).split(",")
       # meta
       event.set("#{@prefix}rule", data[0].to_i)
-      event.set("#{@prefix}subrule", data[3].to_i)
+      event.set("#{@prefix}subrule", data[3]) # is a hash value that matches a hash value in the OPNSense API
       event.set("#{@prefix}input_interface", data[4])
       event.set("#{@prefix}reason", data[5])
       event.set("#{@prefix}action", data[6])
